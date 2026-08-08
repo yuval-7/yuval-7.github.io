@@ -83,15 +83,16 @@ a { color: inherit; text-decoration: none; }
   background: radial-gradient(circle, rgba(125,211,252,.12), rgba(167,139,250,.04) 55%, transparent 70%);
   box-shadow: 0 0 90px rgba(125,211,252,.08);
   overflow: hidden;
-  padding: 10px;
+  padding: 0;
 }
 .profile-photo {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: center 24%;
+  object-position: center 60%;
   border-radius: 50%;
+  transform: scale(0.9);
 }
 }
 
