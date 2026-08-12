@@ -79,7 +79,7 @@ a { color: inherit; text-decoration: none; }
 .mark-ring {
   width: min(330px, 70vw); aspect-ratio: 1;
   display: grid; place-items: center; border-radius: 50%;
-  border: 1px solid var(--line);
+  border: 2px solid rgba(255,255,255,0.35);
   background: radial-gradient(circle, rgba(125,211,252,.12), rgba(167,139,250,.04) 55%, transparent 70%);
   box-shadow: 0 0 90px rgba(125,211,252,.08);
   overflow: hidden;
@@ -91,8 +91,8 @@ a { color: inherit; text-decoration: none; }
   display: block;
   object-fit: cover;
   object-position: center 60%;
-  border-radius: 50%;
-  transform: scale(0.9);
+  border-radius: 0;
+  transform: translateY(-50px);
 }
 }
 
@@ -152,3 +152,4 @@ footer {
   .project-card { grid-template-columns: 1fr; }
   footer, .contact-link { flex-direction: column; }
 }
+
