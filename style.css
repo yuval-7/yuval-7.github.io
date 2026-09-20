@@ -103,6 +103,9 @@ h2 { margin: 14px 0 28px; font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: -
   background: linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
   border: 1px solid var(--line); border-radius: 18px; padding: 30px;
 }
+.project-card {
+  margin-bottom: 20px;
+}
 .info-card { display: flex; justify-content: space-between; align-items: center; gap: 25px; }
 .info-card h3, .project-card h3 { margin: 8px 0 5px; font-size: 1.45rem; }
 .info-card p, .project-card p, .muted { color: var(--muted); }
