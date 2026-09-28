@@ -113,6 +113,20 @@ h2 { margin: 14px 0 28px; font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: -
   border: 1px solid var(--line); border-radius: 999px; padding: 6px 11px;
   color: var(--muted); font-size: .72rem; white-space: nowrap;
 }
+
+.project-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.project-heading .status {
+  margin-top: 2px;
+}
+
+
+
 .project-card { display: grid; grid-template-columns: 90px 1fr; gap: 24px; }
 .project-number { font-size: 2rem; color: var(--muted); font-weight: 800; }
 .project-body p { max-width: 720px; margin-top: 12px; }
