@@ -20,3 +20,19 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+
+// Disable right-click
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+});
+
+// Disable copying
+document.addEventListener("copy", (e) => {
+  e.preventDefault();
+});
+
+// Disable cutting
+document.addEventListener("cut", (e) => {
+  e.preventDefault();
+});
