@@ -1,80 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Yuval Verma — Electronics and Communication Engineering student, learning, growing and building.">
-  <title>Yuval Verma | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Yuval Verma — Electronics and Communication Engineering student, learning, growing and building.">
+<meta name="theme-color" content="#07090c">
+<meta property="og:title" content="Yuval Verma | Portfolio">
+<meta property="og:description" content="Electronics and Communication Engineering student — Learn • Grow • Build.">
+<title>Yuval Verma | Portfolio</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
-  <header class="site-header">
-    <a class="logo" href="#home" aria-label="Yuval Verma home"><img src="logo.png" alt="Yuval Verma logo"></a>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="nav">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#projects">Projects</a>
-      <a href="#learning">Learning</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<body class="loading">
 
-  <main>
-    <section id="home" class="hero section">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">HELLO, I'M</p>
-        <h1>Yuval <span>Verma</span></h1>
-        <p class="tagline">Learn <b>•</b> Grow <b>•</b> Build</p>
-        <p class="intro">An Electronics and Communication Engineering fresher exploring technology, coding and everything in between.</p>
-        <div class="actions">
-          <a class="button primary" href="#projects">View Projects</a>
-          <a class="button secondary" href="#contact">Contact Me</a>
-        </div>
-        <div class="socials" aria-label="Social links">
-          <a href="https://github.com/yuval-7" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/yuval-verma-50895b274" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://x.com/Yuval_Verma7" target="_blank" rel="noopener noreferrer">X</a>
-        </div>
+<!-- ============ PRELOADER ============ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-center">
+    <div class="loader-logo-wrap">
+      <img class="loader-logo" src="logo.png" alt="">
+      <span class="loader-ring"></span>
+    </div>
+    <div class="loader-count"><span id="minute">0</span><sup>'</sup></div>
+    <div class="loader-label" id="loaderLabel">KICK-OFF</div>
+  </div>
+  <div class="loader-bar"><span id="loaderBar"></span></div>
+  <button class="loader-skip" id="skip" type="button">Skip →</button>
+</div>
+
+<div class="flash" id="flash"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><span id="progress"></span></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <a class="logo" href="#home" aria-label="Yuval Verma home"><img src="logo.png" alt="Yuval Verma logo"></a>
+  <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" type="button"><i></i><i></i></button>
+  <nav class="nav" id="nav">
+    <a href="#home" data-nav="home"><em>00</em>Home</a>
+    <a href="#about" data-nav="about"><em>01</em>About</a>
+    <a href="#education" data-nav="education"><em>02</em>Education</a>
+    <a href="#projects" data-nav="projects"><em>03</em>Projects</a>
+    <a href="#learning" data-nav="learning"><em>04</em>Learning</a>
+    <a href="#contact" data-nav="contact"><em>05</em>Contact</a>
+  </nav>
+</header>
+
+<!-- ============ LAYERS PANEL ============ -->
+<aside class="layers" aria-label="Page sections">
+  <p class="layers-title">LAYERS</p>
+  <a href="#home" data-layer="home"><i class="eye"></i><b></b>Home</a>
+  <a href="#about" data-layer="about"><i class="eye"></i><b></b>About</a>
+  <a href="#education" data-layer="education"><i class="eye"></i><b></b>Education</a>
+  <a href="#projects" data-layer="projects"><i class="eye"></i><b></b>Projects</a>
+  <a href="#learning" data-layer="learning"><i class="eye"></i><b></b>Learning</a>
+  <a href="#contact" data-layer="contact"><i class="eye"></i><b></b>Contact</a>
+</aside>
+
+<main>
+
+  <!-- ============ HOME ============ -->
+  <section id="home" class="hero section">
+    <svg class="pitch" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect x="40" y="40" width="1120" height="720" rx="6" pathLength="1"/>
+      <line x1="600" y1="40" x2="600" y2="760" pathLength="1"/>
+      <circle cx="600" cy="400" r="110" pathLength="1"/>
+      <circle cx="600" cy="400" r="5" pathLength="1"/>
+      <rect x="40" y="220" width="170" height="360" pathLength="1"/>
+      <rect x="990" y="220" width="170" height="360" pathLength="1"/>
+      <rect x="40" y="320" width="60" height="160" pathLength="1"/>
+      <rect x="1100" y="320" width="60" height="160" pathLength="1"/>
+    </svg>
+
+    <div class="hero-copy">
+      <p class="eyebrow reveal">HELLO, I'M</p>
+      <h1 class="name" id="name" aria-label="Yuval Verma">
+        <span class="line l1"><span class="word" data-split>Yuval</span></span>
+        <span class="line l2"><span class="word" data-split>Verma</span></span>
+      </h1>
+      <p class="tagline reveal" style="--d:2"><span class="tw">Learn</span> <b>•</b> <span class="tw">Grow</span> <b>•</b> <span class="tw">Build</span></p>
+      <p class="intro reveal" style="--d:3">An Electronics and Communication Engineering fresher exploring technology, coding and everything in between.</p>
+      <div class="actions reveal" style="--d:4">
+        <a class="button primary" href="#projects" data-magnetic><span>View Projects</span></a>
+        <a class="button secondary" href="#contact" data-magnetic><span>Contact Me</span></a>
+      </div>
+      <div class="socials reveal" style="--d:5" aria-label="Social links">
+        <a href="https://github.com/yuval-7" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/yuval-verma-50895b274" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://x.com/Yuval_Verma7" target="_blank" rel="noopener noreferrer">X</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" id="heroVisual">
+      <div class="orbit" id="orbit" aria-hidden="true">
+        <svg viewBox="0 0 600 600" class="orbit-svg">
+          <defs>
+            <path id="orbitPath" d="M300,300 m-262,0 a262,262 0 1,1 524,0 a262,262 0 1,1 -524,0"/>
+            <linearGradient id="og" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+          </defs>
+          <circle cx="300" cy="300" r="290" class="orbit-dash"/>
+          <text class="orbit-text" fill="url(#og)"><textPath href="#orbitPath" startOffset="0">LEARN • GROW • BUILD • LEARN • GROW • BUILD • LEARN • GROW • BUILD • LEARN • GROW • BUILD •</textPath></text>
+        </svg>
       </div>
 
-      <div class="hero-mark reveal">
-        <div class="mark-ring">
-          <img class="profile-photo" src="profile.png" alt="Yuval Verma">
+      <div class="chip chip-a" aria-hidden="true">B.E. — ECE</div>
+      <div class="chip chip-b" aria-hidden="true">Thapar Institute</div>
+
+      <div class="frame" id="frame">
+        <img class="profile-photo" src="profile.jpg" alt="Yuval Verma" width="900" height="1200" fetchpriority="high">
+        <div class="frame-shade"></div>
+        <div class="vf" aria-hidden="true">
+          <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
+          <span class="af" id="af"></span>
+          <span class="hud hud-tl">ISO 100</span>
+          <span class="hud hud-tc">f/1.8</span>
+          <span class="hud hud-tr">1/250</span>
+          <span class="hud hud-bl"><u></u>AF-S</span>
+          <span class="hud hud-br" id="afState">FOCUSING</span>
+          <div class="meter"><span>-2</span><span>-1</span><span>0</span><span>+1</span><span>+2</span><em id="meterDot"></em></div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section id="about" class="section content-section">
-      <p class="section-label">01 — ABOUT</p>
-      <h2>About Me</h2>
-      <p class="section-text">
-        I am Yuval Verma, currently pursuing Electronics and Communication Engineering
-        at Thapar Institute of Engineering &amp; Technology as a fresher.
-        I am at the beginning of my journey in technology, focused on learning,
-        growing and building things along the way.
-      </p>
-    </section>
+    <a class="scroll-hint" href="#about" aria-label="Scroll to About"><span>SCROLL</span><i></i></a>
+  </section>
 
-    <section id="education" class="section content-section">
-      <p class="section-label">02 — EDUCATION</p>
-      <h2>Where I'm studying</h2>
-      <div class="info-card">
-        <div>
-          <span class="card-kicker">UNDERGRADUATE</span>
-          <h3>Electronics &amp; Communication Engineering</h3>
-          <p>Thapar Institute of Engineering &amp; Technology</p>
-        </div>
-        <span class="status">FRESHER</span>
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track filled"><span>Learn</span><i>✦</i><span>Grow</span><i>✦</i><span>Build</span><i>✦</i><span>Learn</span><i>✦</i><span>Grow</span><i>✦</i><span>Build</span><i>✦</i><span>Learn</span><i>✦</i><span>Grow</span><i>✦</i><span>Build</span><i>✦</i></div>
+    <div class="marquee-track outline"><span>Build</span><i>✦</i><span>Grow</span><i>✦</i><span>Learn</span><i>✦</i><span>Build</span><i>✦</i><span>Grow</span><i>✦</i><span>Learn</span><i>✦</i><span>Build</span><i>✦</i><span>Grow</span><i>✦</i><span>Learn</span><i>✦</i></div>
+  </div>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="section content-section">
+    <p class="section-label reveal">01 — ABOUT</p>
+    <h2 class="reveal" style="--d:1">About Me</h2>
+    <div class="about-grid">
+      <p class="section-text scrub" id="scrub">I am Yuval Verma, currently pursuing Electronics and Communication Engineering at Thapar Institute of Engineering &amp; Technology as a fresher. I am at the beginning of my journey in technology, focused on learning, growing and building things along the way.</p>
+      <div class="scope reveal" style="--d:2" aria-hidden="true">
+        <div class="scope-bar"><span>CH1</span><span>CH2</span><span class="live"><u></u>SIGNAL</span></div>
+        <canvas id="scope"></canvas>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="projects" class="section content-section">
-      <p class="section-label">03 — PROJECTS</p>
-      <h2>Things I've built</h2>
-      
-      <div class="project-card">
+  <!-- ============ EDUCATION ============ -->
+  <section id="education" class="section content-section">
+    <p class="section-label reveal">02 — EDUCATION</p>
+    <h2 class="reveal" style="--d:1">Where I'm studying</h2>
+    <div class="info-card card reveal" style="--d:2">
+      <svg class="traces" viewBox="0 0 800 200" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,150 H120 L160,110 H330 L360,140 H520 L560,90 H800" pathLength="1"/>
+        <path d="M0,60 H210 L240,90 H420 L450,40 H640 L670,70 H800" pathLength="1"/>
+        <path d="M300,200 V170 L330,140" pathLength="1"/>
+        <path d="M600,0 V40 L560,90" pathLength="1"/>
+        <circle cx="160" cy="110" r="4"/><circle cx="360" cy="140" r="4"/><circle cx="560" cy="90" r="4"/><circle cx="450" cy="40" r="4"/><circle cx="670" cy="70" r="4"/>
+      </svg>
+      <div class="info-main">
+        <span class="card-kicker">UNDERGRADUATE</span>
+        <h3>Electronics &amp; Communication Engineering</h3>
+        <p>Thapar Institute of Engineering &amp; Technology</p>
+      </div>
+      <span class="status"><u></u>FRESHER</span>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="section content-section">
+    <p class="section-label reveal">03 — PROJECTS</p>
+    <h2 class="reveal" style="--d:1">Things I've built</h2>
+
+    <div class="tilt-wrap reveal">
+      <article class="project-card card" data-tilt>
         <div class="project-number">01</div>
         <div class="project-body">
           <span class="card-kicker">CLASS 12 SCHOOL PROJECT</span>
@@ -88,110 +192,124 @@
             View on GitHub <span>↗</span>
           </a>
         </div>
-      </div>
-
-
-
-
-
-      <div class="project-card">
-  <div class="project-number">02</div>
-
-  <div class="project-body">
-    <div class="project-heading">
-      <div>
-        <span class="card-kicker">DATAFORGE HACKATHON</span>
-        <h3>Voice Ward</h3>
-      </div>
-      <span class="status">AI-ASSISTED</span>
+        <div class="project-visual" aria-hidden="true">
+          <div class="term">
+            <div class="term-bar"><i></i><i></i><i></i><span>student_utility_manager.py</span></div>
+            <pre id="term"></pre>
+          </div>
+        </div>
+      </article>
     </div>
 
-    <p>
-      A voice-native incident desk built for the DataForge Hackathon, designed
-      to make incident handling faster and more natural through voice-based interaction.
-    </p>
-
-    <a class="text-link" href="https://github.com/yuval-7/voice-ward"
-       target="_blank" rel="noopener noreferrer">
-      View on GitHub <span>↗</span>
-    </a>
-  </div>
-</div>
-
-	<div class="project-card">
-  <div class="project-number">03</div>
-
-  <div class="project-body">
-    <div class="project-heading">
-      <div>
-        <span class="card-kicker">FULL-STACK WEB PROJECT</span>
-        <h3>CampusOS</h3>
-      </div>
-      <span class="status">AI-ASSISTED</span>
+    <div class="tilt-wrap reveal">
+      <article class="project-card card" data-tilt>
+        <div class="project-number">02</div>
+        <div class="project-body">
+          <div class="project-heading">
+            <div>
+              <span class="card-kicker">DATAFORGE HACKATHON</span>
+              <h3>Voice Ward</h3>
+            </div>
+            <span class="status">AI-ASSISTED</span>
+          </div>
+          <p>
+            A voice-native incident desk built for the DataForge Hackathon, designed
+            to make incident handling faster and more natural through voice-based interaction.
+          </p>
+          <a class="text-link" href="https://github.com/yuval-7/voice-ward" target="_blank" rel="noopener noreferrer">
+            View on GitHub <span>↗</span>
+          </a>
+        </div>
+        <div class="project-visual" aria-hidden="true">
+          <div class="voice">
+            <div class="voice-top"><span class="rec"><u></u>LISTENING</span><span>VOICE DESK</span></div>
+            <div class="bars" id="bars"></div>
+          </div>
+        </div>
+      </article>
     </div>
 
-    <p>
-      A full-stack student productivity and campus management platform designed
-      to bring schedules, tasks, exams, notes, attendance, subjects and expenses
-      together in one place.
-    </p>
+    <div class="tilt-wrap reveal">
+      <article class="project-card card" data-tilt>
+        <div class="project-number">03</div>
+        <div class="project-body">
+          <div class="project-heading">
+            <div>
+              <span class="card-kicker">FULL-STACK WEB PROJECT</span>
+              <h3>CampusOS</h3>
+            </div>
+            <span class="status">AI-ASSISTED</span>
+          </div>
+          <p>
+            A full-stack student productivity and campus management platform designed
+            to bring schedules, tasks, exams, notes, attendance, subjects and expenses
+            together in one place.
+          </p>
+          <a class="text-link" href="https://github.com/yuval-7/CampusOS" target="_blank" rel="noopener noreferrer">
+            View on GitHub <span>↗</span>
+          </a>
+        </div>
+        <div class="project-visual" aria-hidden="true">
+          <div class="tiles">
+            <span style="--i:0">Schedules</span><span style="--i:1">Tasks</span><span style="--i:2">Exams</span>
+            <span style="--i:3">Notes</span><span style="--i:4">Attendance</span><span style="--i:5">Subjects</span>
+            <span style="--i:6" class="wide">Expenses</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 
-    <a class="text-link" href="https://github.com/yuval-7/CampusOS"
-       target="_blank" rel="noopener noreferrer">
-      View on GitHub <span>↗</span>
-    </a>
-  </div>
-</div>      
-
-
-
-
-
-
-
-
-      
-    </section>
-
-    <section id="learning" class="section content-section">
-      <p class="section-label">04 — LEARNING</p>
-      <h2>Currently learning</h2>
-      <div class="learning-box">
-        <p>I'm just getting started — and that's the point.</p>
-        <p class="muted">
-          This section will grow with me as I learn new technologies, work on projects
-          and discover what I enjoy building.
-        </p>
+  <!-- ============ LEARNING ============ -->
+  <section id="learning" class="section content-section">
+    <p class="section-label reveal">04 — LEARNING</p>
+    <h2 class="reveal" style="--d:1">Currently learning</h2>
+    <div class="learning-box card reveal" style="--d:2">
+      <p class="big">I'm just getting started — and that's the point.<span class="caret"></span></p>
+      <p class="muted">
+        This section will grow with me as I learn new technologies, work on projects
+        and discover what I enjoy building.
+      </p>
+      <div class="boot" aria-hidden="true">
+        <span class="boot-bar"><i></i></span>
+        <span class="boot-txt">LOADING<span class="dots"></span></span>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact" class="section contact-section">
-      <p class="section-label">05 — CONTACT</p>
-      <h2>Let's connect.</h2>
-      <p class="section-text">Want to get in touch? Find me on any of the platforms below.</p>
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="section contact-section">
+    <p class="section-label reveal">05 — CONTACT</p>
+    <h2 class="reveal contact-title" style="--d:1">Let's connect.</h2>
+    <p class="section-text reveal" style="--d:2">Want to get in touch? Find me on any of the platforms below.</p>
+    <div class="contact-links">
+      <a href="mailto:yuvalvermauv@gmail.com" class="contact-link reveal" style="--d:2" data-magnetic-soft>
+        <span>Email</span><span>yuvalvermauv@gmail.com ↗</span>
+      </a>
+      <a href="https://www.linkedin.com/in/yuval-verma-50895b274" target="_blank" rel="noopener noreferrer" class="contact-link reveal" style="--d:3">
+        <span>LinkedIn</span><span>Connect ↗</span>
+      </a>
+      <a href="https://github.com/yuval-7" target="_blank" rel="noopener noreferrer" class="contact-link reveal" style="--d:4">
+        <span>GitHub</span><span>@yuval-7 ↗</span>
+      </a>
+      <a href="https://x.com/Yuval_Verma7" target="_blank" rel="noopener noreferrer" class="contact-link reveal" style="--d:5">
+        <span>X / Twitter</span><span>@Yuval_Verma7 ↗</span>
+      </a>
+    </div>
+    <button class="copy-mail reveal" id="copyEmail" type="button" style="--d:5">Copy email address</button>
+  </section>
 
-      <div class="contact-links">
-        <a href="mailto:yuvalvermauv@gmail.com" class="contact-link">
-          <span>Email</span><span>yuvalvermauv@gmail.com ↗</span>
-        </a>
-        <a href="https://www.linkedin.com/in/yuval-verma-50895b274" target="_blank" rel="noopener noreferrer" class="contact-link">
-          <span>LinkedIn</span><span>Connect ↗</span>
-        </a>
-        <a href="https://github.com/yuval-7" target="_blank" rel="noopener noreferrer" class="contact-link">
-          <span>GitHub</span><span>@yuval-7 ↗</span>
-        </a>
-        <a href="https://x.com/Yuval_Verma7" target="_blank" rel="noopener noreferrer" class="contact-link">
-          <span>X / Twitter</span><span>@Yuval_Verma7 ↗</span>
-        </a>
-      </div>
-    </section>
-  </main>
+</main>
 
-  <footer>
-    <span>© 2026 Yuval Verma</span>
-    <span>Learn • Grow • Build</span>
-  </footer>
+<footer>
+  <span>© 2026 Yuval Verma</span>
+  <button class="egg" id="egg" type="button" aria-label="Celebrate">press G ⚽</button>
+  <span>Learn • Grow • Build</span>
+</footer>
 
-  <script src="script.js"></script>
+<div class="goal" id="goal" aria-hidden="true">GOOOAL!</div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<script src="script.js"></script>
 </body>
 </html>
