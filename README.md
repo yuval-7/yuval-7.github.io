@@ -160,16 +160,6 @@ Some things I plan to add as the portfolio grows:
 
 ---
 
-## ⭐ Featured Project
-
-### Student Utility Manager
-
-My first featured coding project — a Python + MySQL command-line application developed as a Class 12 school project.
-
-The project represents the starting point of my journey into programming and software development.
-
----
-
 ## 📜 License
 
 This portfolio is a personal project created by **Yuval Verma**.
