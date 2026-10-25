@@ -554,3 +554,8 @@
   requestAnimationFrame(loop);
   if (reduce) { drawBg(); }
 })();
+
+
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
