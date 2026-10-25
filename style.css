@@ -444,3 +444,14 @@ footer { position: relative; z-index: 1; display: flex; justify-content: space-b
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; scroll-behavior: auto !important; }
   .grain { display: none; }
 }
+
+
+
+/* Disable text selection across the website */
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
